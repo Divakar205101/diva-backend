@@ -1,0 +1,6 @@
+package com.div.domain;
+
+public class RoleMasterVO extends BaseVO {
+
+
+}

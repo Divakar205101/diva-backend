@@ -1,0 +1,5 @@
+package com.diva.mo;
+
+public class UserMTO {
+
+}

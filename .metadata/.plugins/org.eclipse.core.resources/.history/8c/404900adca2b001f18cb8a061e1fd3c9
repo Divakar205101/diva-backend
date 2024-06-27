@@ -1,0 +1,12 @@
+package com.div.domain;
+
+public class MemberBanksVO {
+	
+	private String bank;
+	private String accountno;
+	private String branch;
+	private String ifscCode;
+	private String accountType;
+	
+
+}

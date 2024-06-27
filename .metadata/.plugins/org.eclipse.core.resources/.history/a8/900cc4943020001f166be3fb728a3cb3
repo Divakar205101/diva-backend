@@ -1,0 +1,5 @@
+package com.diva.config;
+
+public class WebConfig {
+
+}

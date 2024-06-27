@@ -1,0 +1,33 @@
+package com.divHealth.domain;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@SuppressWarnings("serial")
+@Getter
+@Setter
+@Entity
+@Table(name = "DIV_USER")
+public class UserDO extends BaseDO{
+
+	@Column(name = "INTRM")
+	private IntermDO intermDO;
+	
+	@Column(name = "ROLE")
+	private RoleMasterDO roleMasterDO;
+	
+	@Column(name = "COUNT")
+	private CountryDO countryDO;
+	
+	@Column(name = "ANDHARNUM")
+	private String andharNum;
+	
+	@Column(name = "STATUS")
+	private String satus;
+	
+	
+}

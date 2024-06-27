@@ -1,0 +1,24 @@
+package com.div.domain;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@SuppressWarnings("serial")
+@Getter
+@Setter
+@Entity
+@Table(name = "DIV_ROLE")
+public class RoleMasterVO extends BaseVO {
+
+	@Column(name = "ROLEID")
+	String roleId;
+	
+	@Column(name = "ROLE")
+	String role;
+
+	
+}

@@ -1,0 +1,14 @@
+package com.div.domain;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import lombok.Getter;
+import lombok.Setter;
+
+
+public class RoleMasterVO extends BaseVO {
+
+
+}

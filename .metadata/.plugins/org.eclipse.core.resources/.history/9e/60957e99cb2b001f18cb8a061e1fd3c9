@@ -1,0 +1,9 @@
+package com.div.domain;
+
+public class MemberCommVO {
+	
+	private String email;
+	private Integer mobileno;
+	private String lanno;
+
+}

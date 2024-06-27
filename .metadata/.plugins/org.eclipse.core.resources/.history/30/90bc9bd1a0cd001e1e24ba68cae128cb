@@ -1,0 +1,48 @@
+package com.div.domain;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Entity
+@Table(name = "DIV_USER")
+public class UserDO implements Serializable{
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID",unique = true,nullable = false)
+	private Integer Id;
+	
+	@Column(name = "USERSTRID")
+	private IntermDO userstrid;
+
+	@Column(name = "INTRM")
+	private IntermDO intermDO;
+	
+	@OneToOne
+	@JoinColumn(name = "ROLE_ID")
+	private RoleMasterDO roleMasterDO;
+	
+	@Column(name = "ANDHARNUM")
+	private String andharNum;
+	
+	@Column(name = "STATUS")
+	private String satus;
+	
+	
+}
