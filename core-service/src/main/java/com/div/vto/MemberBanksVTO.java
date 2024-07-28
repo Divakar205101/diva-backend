@@ -9,6 +9,7 @@ import lombok.Setter;
 @Setter
 public class MemberBanksVTO {
    
+	private Integer id;
 	private MemberVO memberVO;
 	private String bank;
 	private String accountno;

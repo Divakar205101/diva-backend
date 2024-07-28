@@ -42,30 +42,18 @@ public class MemberController {
 	@PostMapping(value=SAVEUSER)
 	 public ResponseEntity<MemberMTO> createUser(@RequestParam(ACTION) String action,@RequestBody MemberMTO memberMTO){
 		 try {
+			 MemberVO memberVO_DB = new MemberVO();
 			 MemberMO memberMO = mapper.convertValue(memberMTO, MemberMO.class);
-			 memberCommRepository.save(memberMO.getMemberVO().getMemberCommVO());
-			 memberMO.getMemberVO().setMemberCommVO(memberMO.getMemberVO().getMemberCommVO());
-			 userService.createUser(memberMO.getMemberVO());
 			 MemberVO memberVO = memberMO.getMemberVO();
 			 if (action.equals(CREATE)) {
-				 memberMO.getMemberVO().getMemberBanksVOs().forEach(x->{
-						x.setMemberVO(memberVO);
-						memberBanksRepository.save(x);
-					});
+				 memberCommRepository.save(memberVO.getMemberCommVO());
+				 memberMO.getMemberVO().setMemberCommVO(memberMO.getMemberVO().getMemberCommVO());
+				 MemberVO memberVO_UI = memberMO.getMemberVO();
+				 userService.createUser(memberVO_UI);
 			}else if(action.equals(EDIT)) {
-				List<MemberBanksVO> memberBanksVOs_DB = userService.getUserById(memberVO.getId()).getMemberBanksVOs();
-				List<MemberBanksVO> memberBanksVOs_UI = memberVO.getMemberBanksVOs();
-				memberBanksVOs_DB.forEach(x->{
-					if (!memberBanksVOs_UI.contains(x)) {
-						memberBanksRepository.delete(x);
-					}
-				});
-				memberBanksVOs_UI.forEach(x->{
-						x.setMemberVO(memberVO);
-						memberBanksRepository.save(x);
-					});
+				 memberVO_DB= userService.getUserById(memberVO.getId());
 			}
-			 
+			 saveorupdatebankVOs(memberVO,memberVO_DB);
 			 System.out.println("Member saved");
 		} catch (Exception e) {
 			 e.printStackTrace();
@@ -86,5 +74,19 @@ public class MemberController {
 	 @GetMapping(value=GET_ALL)
 	 public ResponseEntity<List<MemberVO>> getAll() {
 		return new ResponseEntity<>(userService.getAllUsers(),HttpStatus.OK);
+	}
+	 
+	 public void saveorupdatebankVOs(MemberVO memberVO_UI, MemberVO MemberVO_DB) {
+		 List<MemberBanksVO> memberBanksVOs_UI = memberVO_UI.getMemberBanksVOs();
+		 List<MemberBanksVO> memberBanksVOs_DB = MemberVO_DB.getMemberBanksVOs();
+		 
+		 memberBanksVOs_DB.stream().filter(x-> !memberBanksVOs_UI.contains(x)).forEach(y->{
+			 memberBanksRepository.deleteById(y.getId());
+		 });
+		 
+		 for (MemberBanksVO memberBanksVO : memberBanksVOs_UI) {
+			 memberBanksVO.setMemberVO(memberVO_UI);
+			 memberBanksRepository.save(memberBanksVO);
+		}
 	}
 }

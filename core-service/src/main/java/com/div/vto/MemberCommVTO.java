@@ -7,6 +7,7 @@ import lombok.Setter;
 @Setter
 public class MemberCommVTO {
 	
+	private Integer id;
 	private String primail;
 	private String mobileNumber;
 	private String lanNumber;

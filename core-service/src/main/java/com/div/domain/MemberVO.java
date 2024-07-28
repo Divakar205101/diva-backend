@@ -54,7 +54,7 @@ public class MemberVO extends BaseVO {
 	private Integer age;
 
 	@JsonManagedReference
-	@OneToMany(mappedBy ="memberVO",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy ="memberVO",cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
 	private List<MemberBanksVO> memberBanksVOs = new ArrayList<MemberBanksVO>();
 	
 	 

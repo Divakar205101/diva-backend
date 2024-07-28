@@ -26,7 +26,8 @@ public class MemberServiceImpl implements MemberService {
 	public MemberVO getUserById(Integer userId) {
 		Optional<MemberVO> findById = memberRepository.findById(userId);
 		Hibernate.initialize(findById.get().getMemberBanksVOs());
-		return findById.get();
+		MemberVO memberVO = findById.get();
+		return memberVO;
 	}
 
 	@Override
