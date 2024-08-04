@@ -1,7 +1,0 @@
-package com.diva.mto;
-
-import com.diva.domain.UserVO;
-
-public class UserMO {
-   private UserVO userVO;
-}

@@ -1,5 +1,0 @@
-package com.div.repo;
-
-public interface MemberBanksRepository {
-
-}

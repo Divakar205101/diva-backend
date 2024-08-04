@@ -1,0 +1,5 @@
+package com.div.domain;
+
+public class OutboxEventDO {
+
+}
