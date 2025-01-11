@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.div.custonexceptionhadler.UserNotFoundException;
 import com.div.domain.MemberBanksVO;
 import com.div.domain.MemberVO;
 import com.div.domain.ModuleVO;
@@ -26,6 +27,9 @@ import com.div.service.MemberService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping(value = "/core")
 public class MemberController {
@@ -76,12 +80,14 @@ public class MemberController {
 		if (userById != null) {
 			return ResponseEntity.ok(userById);
 		} else {
-			return ResponseEntity.notFound().build();
+			throw new UserNotFoundException("404","User not Exist");
+//			return ResponseEntity.notFound().build();
 		}
 	}
 
 	@GetMapping(value = GET_ALL)
 	public ResponseEntity<List<MemberVO>> getAll() {
+		log.info("Get Members Method Called");
 		return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
 	}
 
