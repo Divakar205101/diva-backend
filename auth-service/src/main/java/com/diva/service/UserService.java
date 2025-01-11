@@ -10,7 +10,7 @@ import com.diva.repo.UserRepository;
 @Service
 public class UserService {
 
-	@Autowired UserRepository userRepository;
+	@Autowired private UserRepository userRepository;
 	@Autowired private PasswordEncoder passwordEncoder;
 	@Autowired private JwtService jwtService;
 	

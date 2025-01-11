@@ -1,0 +1,35 @@
+package com.div.repo;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Repository;
+
+import com.div.domain.ComboTableVO;
+
+@Repository
+public interface ComboTableVORepo {
+	
+	public static final String HASH_KEY ="COMBOTABLE";
+	
+	@Autowired
+	RedisTemplate redisTemplate;
+	
+	public static void save(ComboTableVO comboTableVO) {
+		redisTemplate.opsForHash().put(HASH_KEY, comboTableVO.getTableFeild(), comboTableVO);
+	}
+	
+	public static List<ComboTableVO> findAll(){
+		return redisTemplate.opsForHash().values(HASH_KEY);
+	}
+	
+	public static ComboTableVO findComboTableVOByTableFeild(String tableFeild) {
+		return (ComboTableVO)redisTemplate.opsForHash().get(HASH_KEY, tableFeild);
+	}
+	
+	public static void deleteTableFeild(String tableFeild) {
+		redisTemplate.opsForHash().delete(HASH_KEY, tableFeild);
+	}
+
+}

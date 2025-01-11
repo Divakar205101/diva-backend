@@ -1,0 +1,18 @@
+package com.div.domain;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Entity
+@Table(name = "DIV_COMBOTABLE")
+public class ComboTableVO extends BaseVO {
+	private String tableFeild;
+	private String comboFeild;
+	private String cobotext;
+
+}

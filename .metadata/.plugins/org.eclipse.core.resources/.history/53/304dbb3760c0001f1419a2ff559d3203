@@ -1,0 +1,13 @@
+spring.datasource.url= jdbc:sqlserver://localhost:1433;encrypt=true;trustServerCertificate=true;databaseName=DIVAHEALTH_DEV
+spring.datasource.username=diva
+spring.datasource.password=Divakar@123
+spring.jpa.properties.hibernate.dialect= org.hibernate.dialect.SQLServerDialect
+
+server.port=9898
+eureka.client.registerWithEureka=true
+eureka.client.fetchRegistry=true
+eureka.instance.preferIpAddress=true
+eureka.client.serviceUrl.defaultZone= http://localhost:8761/eureka
+spring.application.name=SECURITY-SERVICE
+
+spring.mvc.pathmatch.matching-strategy: ant_path_matcher

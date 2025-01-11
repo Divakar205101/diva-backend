@@ -1,0 +1,21 @@
+package com.div.controller;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.div.domain.ComboTableVO;
+import com.div.service.ComboTableVOService;
+
+@RestController(value = "combo")
+public class ComboTableController {
+	
+	private ComboTableVOService comboTableVOService;
+	
+	@PostMapping(value = "savecombo")
+	public void save(@RequestParam String action,@RequestBody ComboTableVO comboTableVO) {
+		comboTableVOService.save(comboTableVO)
+	}
+
+}

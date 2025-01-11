@@ -1,5 +1,0 @@
-package com.div.domain;
-
-public class OutboxEventVO {
-
-}

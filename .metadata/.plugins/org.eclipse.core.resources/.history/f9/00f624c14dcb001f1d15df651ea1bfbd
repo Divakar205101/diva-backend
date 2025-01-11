@@ -1,0 +1,32 @@
+package com.div.serviceImpl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+
+import com.div.domain.ComboTableVO;
+import com.div.repo.ComboTableVORepo;
+import com.div.service.ComboTableVOService;
+
+public class ComboTableVOServiceImpl implements ComboTableVOService{
+	
+	@Autowired
+	ComboTableVORepo comboTableVORepo;
+	RedisTemplate redisTemplate; 
+
+	@Override
+	public ComboTableVO save(ComboTableVO comboTableVO) {
+		return comboTableVORepo.save(comboTableVO);
+	}
+
+	@Override
+	public List<ComboTableVO> findAll() {
+		List<ComboTableVO> findAll = comboTableVORepo.findAll();
+		findAll.forEach(comboTableVO -> {
+			
+		});
+		return null;
+	}
+
+}

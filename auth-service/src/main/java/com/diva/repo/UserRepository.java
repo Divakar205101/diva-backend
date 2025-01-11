@@ -10,5 +10,6 @@ import com.diva.domain.UserVO;
 @Repository
 public interface UserRepository extends JpaRepository<UserVO, Integer> {
 	Optional<UserVO> findByEmail(String username);
+	boolean existsByEmail(String email);
 
 }

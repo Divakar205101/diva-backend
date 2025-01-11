@@ -17,7 +17,7 @@ public class CustomUserDetailsService implements UserDetailsService{
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-	Optional<UserVO> userVO = repository.findByEmail(username);
+	    Optional<UserVO> userVO = repository.findByEmail(username);
 		return userVO.map(CustomUserVO :: new).orElseThrow(()-> new UsernameNotFoundException("user"+username+"not found "));
 	}
 

@@ -1,14 +1,15 @@
 package com.diva.mo;
 
+import javax.validation.Valid;
+
 import com.diva.vto.UserVTO;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter
+@Setter
 public class UserMTO {
-	private UserVTO userVO=new UserVTO();
+	@Valid
+	private UserVTO userVO;
 }
