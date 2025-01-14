@@ -2,8 +2,6 @@ package com.div.serviceImpl;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +9,8 @@ import org.springframework.stereotype.Service;
 import com.div.domain.ModuleVO;
 import com.div.repo.ModuleRepository;
 import com.div.service.ModuleService;
+
+import jakarta.transaction.Transactional;
 @Service
 @Transactional
 public class ModuleServiceImpl  implements ModuleService {

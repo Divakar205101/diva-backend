@@ -1,0 +1,5 @@
+package com.div.serviceImpl;
+
+public class UserDetailsServiceImpl {
+
+}

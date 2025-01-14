@@ -1,0 +1,12 @@
+package com.div.domain;
+
+public class MessageResponse {
+    private String response;
+
+	public MessageResponse(String response) {
+		super();
+		this.response = response;
+	}
+	
+
+}

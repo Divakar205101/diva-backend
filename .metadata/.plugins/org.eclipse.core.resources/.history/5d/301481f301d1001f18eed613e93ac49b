@@ -1,0 +1,39 @@
+package com.div.domain;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "DIV_USER")
+public class UserVO {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
+    private Integer id;
+    
+    @Column(name = "USERNAME")
+    private String username;
+    
+    @Column(name = "PASSWORD")
+    private String password;
+    
+    @Column(name = "CONFPASSWORD")
+    private String conformpassword;
+    
+    @Column(name = "EMAIL")
+    private String email;
+    
+   
+}

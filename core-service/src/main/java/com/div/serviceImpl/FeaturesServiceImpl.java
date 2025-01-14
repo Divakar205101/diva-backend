@@ -1,13 +1,13 @@
 package com.div.serviceImpl;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.div.domain.FeaturesVO;
 import com.div.repo.FeaturesRepository;
 import com.div.service.FeaturesService;
+
+import jakarta.transaction.Transactional;
 @Service
 @Transactional
 public class FeaturesServiceImpl implements FeaturesService{

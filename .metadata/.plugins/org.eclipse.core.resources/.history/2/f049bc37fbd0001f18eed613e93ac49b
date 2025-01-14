@@ -1,0 +1,5 @@
+package com.div.repo;
+
+public interface UserRepository {
+
+}

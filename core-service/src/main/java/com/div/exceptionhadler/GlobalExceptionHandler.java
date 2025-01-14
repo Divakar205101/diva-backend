@@ -19,7 +19,6 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 		return new ResponseEntity<String>(userNotFoundException.getErrorMessage(),HttpStatus.NOT_FOUND);
 	}
 
-	@Override
 	protected ResponseEntity<Object> handleHttpRequestMethodNotSupported(HttpRequestMethodNotSupportedException ex,
 			HttpHeaders headers, HttpStatus status, WebRequest request) {
 		return new ResponseEntity<Object>("change http type",HttpStatus.NOT_FOUND);

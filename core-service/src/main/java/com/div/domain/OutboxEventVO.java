@@ -2,13 +2,12 @@ package com.div.domain;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -39,7 +38,7 @@ public class OutboxEventVO {
 
 	@Column(name = "CREATEDAT", nullable = false)
 	private Date createdAt;
-	
+
 	@Column(name = "UPDATEDAT", nullable = false)
 	private Date updatedAt;
 }

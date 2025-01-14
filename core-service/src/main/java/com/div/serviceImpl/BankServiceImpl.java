@@ -1,10 +1,10 @@
 package com.div.serviceImpl;
 
-import javax.transaction.Transactional;
-
 import org.springframework.stereotype.Service;
 
 import com.div.service.BankService;
+
+import jakarta.transaction.Transactional;
 
 @Service
 @Transactional
